@@ -66,11 +66,11 @@
         width = svg_dx - margin.right - margin.left,
         height = svg_dy - margin.top - margin.bottom;
 	
-	var x = d3.scaleLinear().domain([0, 10]).range([ 0, width ]);
-	var y = d3.scaleLinear().domain([40, 100]).range([ height, 0]);
+	var x = d3.scaleLinear().domain([0, 8]).range([ 0, width ]);
+	var y = d3.scaleLinear().domain([45, 95]).range([ height, 0]);
 			
 	var regions = ['Africa', 'Arab States', 'Asia & Pacific', 'Europe', 'Middle east', 'North America','South/Latin America'],
-	    colorMap = [ "#FF0000","#FFFF00", "#151515","#3ADF00", "#2EFEF7", "#0000FF", "#CC2EFA"];
+	    colorMap = [ "#98FB98","#BDB76B", "#00BFFF","#A9A9A9", "#A52A2A", "#BA55D3", "#FF8C00"];
 	var color = d3.scaleOrdinal()
                   .domain(regions)
                   .range(colorMap);
@@ -116,6 +116,8 @@
                              .attr("cx", (d) => x(+d.FertRate))
                              .attr("cy", (d) => y(+d.LifeExpectancy))
 							 .style("fill",function(d){return color(d.Region);})
+							 .style("stroke", "#2F4F4F")
+							 .style("stroke-width", 0.5)
 							 .attr("class", "non_brushed");
 							 
 			function highlightBrushedCircles() {
@@ -236,15 +238,15 @@
               .append("td")
               .attr("align", (d, i) => i == 0 ? "left" : "right")
               .text(d => d)
-			  .style("color",function(d){
+			  .style("background-color",function(d){
 			                                switch(d) {
-											case regions[0]: return "#FF0000";break;
-											case regions[1]: return "#FFFF00";break;
-											case regions[2]: return "#151515";break;
-											case regions[3]: return "#3ADF00";break;
-											case regions[4]: return "#2EFEF7";break;
-											case regions[5]: return "#0000FF";break;
-											case regions[6]: return "#CC2EFA"; break;
+											case regions[0]: return colorMap[0];break;
+											case regions[1]: return colorMap[1];break;
+											case regions[2]: return colorMap[2];break;
+											case regions[3]: return colorMap[3];break;
+											case regions[4]: return colorMap[4];break;
+											case regions[5]: return colorMap[5];break;
+											case regions[6]: return colorMap[6]; break;
 			                             
 											}
 										}
