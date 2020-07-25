@@ -14,7 +14,7 @@ var color = d3.scaleOrdinal()
               .domain(regions)
               .range(colorMap);
 		
-var svg = d3.select("#viz2")
+var svg2 = d3.select("#viz2")
             .append("svg")
             .attr("width", svg_dx)
             .attr("height", svg_dy)
@@ -24,29 +24,29 @@ var svg = d3.select("#viz2")
 d3.csv("https://raw.githubusercontent.com/bearnomore/CS498Visualization/master/world_profile20.csv", d => {	
 	        
 			
-	svg.append("g")
+	svg2.append("g")
 	   .attr("transform", "translate(0," + height + ")")
 	   .call(d3.axisBottom(x));
 					  
-	svg.append("g")
+	svg2.append("g")
 	   .call(d3.axisLeft(y));
 	   
 	// Add X axis label:
-	svg.append("text")
+	svg2.append("text")
 	   .attr("text-anchor", "end")
 	   .attr("x", width/2 + margin.left)
 	   .attr("y", height + margin.top + 25)
 	   .text("Fertility Rate");
 	   
 	// Y axis label:
-	svg.append("text")
+	svg2.append("text")
 	   .attr("text-anchor", "end")
 	   .attr("transform", "rotate(-90)")
 	   .attr("y", -margin.left + 20)
 	   .attr("x", -margin.top - height/2 + 60)
 	   .text("Life Expectancy (year)")	
 	
-	var circles = svg.append("g")
+	var circles = svg2.append("g")
 					 .selectAll("circle")
 					 .data(d)
 					 .enter()
@@ -105,11 +105,11 @@ d3.csv("https://raw.githubusercontent.com/bearnomore/CS498Visualization/master/w
 				  .on("brush", highlightBrushedCircles)
 				  .on("end", displayTable); 
 				  
-	svg.append("g")
+	svg2.append("g")
 	   .call(brush);
 	   
 	// Add legend for regions.
-	svg.selectAll("mydots")
+	svg2.selectAll("mydots")
 	   .data(regions)
 	   .enter()
 	   .append("circle")
@@ -120,7 +120,7 @@ d3.csv("https://raw.githubusercontent.com/bearnomore/CS498Visualization/master/w
 	   .style("stroke", "black")
 	   .style("opacity", 0.8);
 	   
-	svg.selectAll("mylabels")
+	svg2.selectAll("mylabels")
 	   .data(regions)
 	   .enter()
 	   .append("text")
