@@ -168,7 +168,7 @@ function populateTableRow(d_row) {
 						d_row.MedianAge
 						];
 
-	d3.select("table")
+	d3.select("#table")
 	  .append("tr")
 	  .attr("class", "row_data")
 	  .selectAll("td")
