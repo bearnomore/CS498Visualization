@@ -3,7 +3,7 @@
 var w = 900;
 var h = 600;
 
-var margin = {top: 50, bottom: 100, left: 50, right: 50};
+var margin = {top: 30, bottom: 50, left: 50, right: 50};
 var width = w - margin.left - margin.right;
 var height = h - margin.top - margin.bottom;
 
