@@ -82,12 +82,9 @@ d3.csv("https://raw.githubusercontent.com/bearnomore/CS498Visualization/master/w
         var mousemove = function(d) {
 			                         var value = d.properties.medianAge;
 									 var country = d.properties.name;
-                                     tooltip.transition()
-									        .duration(300)
-											.style("opacity", 0.9)
-                                            .style("left", (d3.event.pageX) + "px") 
-                                            .style("top",  (d3.event.pageY) + "px")
-											.html("Median Age of " + country + ":"+ value);
+                                      tooltip.html("Median Age of " + country + ":"+value)
+                                             .style("left", (d3.mouse(this)[0]+90) + "px") 
+                                             .style("top", (d3.mouse(this)[1]) + "px");
                                     }
 
         // A function that change this tooltip when the leaves a point by setting the opacity to 0 again
