@@ -84,6 +84,7 @@ d3.csv("https://raw.githubusercontent.com/bearnomore/CS498Visualization/master/w
 									 var country = d.properties.name;
                                       tooltip.transition()
 									         .duration(300)
+											 .style("opacity", .9)
 									         .html("Median Age of " + country + ":"+value)
                                              .style("left", (d3.mouse(this)[0]+90) + "px") 
                                              .style("top", (d3.mouse(this)[1]) + "px");
