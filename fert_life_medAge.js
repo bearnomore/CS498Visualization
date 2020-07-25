@@ -14,7 +14,7 @@ var color = d3.scaleOrdinal()
               .domain(regions)
               .range(colorMap);
 		
-var svg = d3.select("#chart")
+var svg = d3.select("#viz2")
             .append("svg")
             .attr("width", svg_dx)
             .attr("height", svg_dy)
